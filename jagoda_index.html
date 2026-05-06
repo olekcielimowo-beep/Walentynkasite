@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>Jagoda 💖</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body {
+font-family: Arial, sans-serif;
+background: linear-gradient(135deg, #ff4d6d, #ff758f);
+height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
+margin: 0;
+color: white;
+text-align: center;
+overflow: hidden;
+}
+.card {
+background: rgba(0,0,0,0.2);
+padding: 30px;
+border-radius: 20px;
+width: 320px;
+box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+position: relative;
+}
+h1 {
+font-size: 26px;
+margin-bottom: 10px;
+}
+p {
+font-size: 16px;
+margin-bottom: 25px;
+}
+button {
+font-size: 16px;
+padding: 10px 20px;
+border: none;
+border-radius: 30px;
+cursor: pointer;
+margin: 10px;
+}
+#yes {
+background: #2ecc71;
+color: white;
+}
+#no {
+background: #e74c3c;
+color: white;
+position: absolute;
+left: 50%;
+transform: translateX(-50%);
+}
+</style>
+</head>
+<body>
+
+<div class="card" id="card">
+<h1>Hej Jagoda 💕</h1>
+<p>
+Prosto z mojego serca…<br>
+Jagoda, zostaniesz moją Walentynką? 🌹
+</p>
+<button id="yes" onclick="sayYes()">Tak 💖</button>
+<button id="no" onmouseover="moveNo()">Nie 😅</button>
+</div>
+
+<script>
+const name = "Jagoda";
+
+function sayYes() {
+document.body.innerHTML = `
+<div style="
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+background:linear-gradient(135deg,#ff4d6d,#ff758f);
+color:white;
+font-family:Arial;
+text-align:center;">
+<h1>YAYYYY ${name} 💘🎉</h1>
+<p>${name}, właśnie zrobiłaś mnie najszczęśliwszą osobą na świecie 🥹❤️</p>
+</div>
+`;
+}
+
+function moveNo() {
+const button = document.getElementById("no");
+const card = document.getElementById("card");
+
+const cardWidth = card.clientWidth;
+const cardHeight = card.clientHeight;
+
+const buttonWidth = button.offsetWidth;
+const buttonHeight = button.offsetHeight;
+
+const maxX = cardWidth - buttonWidth;
+const maxY = cardHeight - buttonHeight;
+
+const x = Math.random() * maxX;
+const y = Math.random() * maxY;
+
+button.style.left = x + "px";
+button.style.top = y + "px";
+button.style.transform = "none";
+}
+</script>
+
+</body>
+</html>
